@@ -1,4 +1,7 @@
-import scrapy
+from scrapy.spider import Spider
+from scrapy.selector import Selector
+from tutorial.items import DmozItem
+
 class doubanSpider(scrapy.Spider):
     name = "doubanSpider"
     allowed_domains = ["dmoz.org"]
@@ -8,6 +11,14 @@ class doubanSpider(scrapy.Spider):
     ]
 
     def parse(self, response):
-        filename = response.url.split("/")[-2]
-        with open(filename, 'wb') as f:
-            f.write(response.body)
+        sel = Selector(response)
+        sites = sel.xpath('//ul[@class="directory-url"]/li')
+        items = []
+
+        for site in sites:
+            item = DmozItem()
+            item['name'] = site.xpath('a/text()').extract()
+            item['url'] = site.xpath('a/@href').extract()
+            item['description'] = site.xpath('text()').re('-\s[^\n]*\\r')
+            items.append(item)
+        return items

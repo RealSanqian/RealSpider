@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+#coding=utf-8
 
 # Define here the models for your scraped items
 #
@@ -16,7 +16,13 @@ class DmozItem(scrapy.Item):
     title = scrapy.Field()
     link = scrapy.Field()
     url = scrapy.Field()
-    pass
+
+class DoubanItem(scrapy.Item):
+    # define the fields for your item here like:
+    # name = scrapy.Field()
+    name = scrapy.Field()  #电影名称
+    description = scrapy.Field()  #电影描述
+    url = scrapy.Field()  #抓取的url
 
 class NewsItem(scrapy.Item):
     name = scrapy.Field() #网站名称

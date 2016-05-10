@@ -33,3 +33,8 @@ class NewsItem(scrapy.Item):
     time = scrapy.Field() #爬虫爬取时间
     vn = scrapy.Field() #爬虫爬取次数
 
+class W3schoolItem(scrapy.Item):
+    titile = scrapy.Field()
+    link = scrapy.Field()
+    desc = scrapy.Field()
+

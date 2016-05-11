@@ -1,7 +1,7 @@
 #coding=utf-8
 from scrapy.spider import Spider
 from scrapy.selector import Selector
-from ..items import DmozItem
+from realSpider.items import DmozItem
 
 
 class DmozSpider(Spider):

@@ -14,7 +14,11 @@ BOT_NAME = 'realSpider'
 SPIDER_MODULES = ['realSpider.spiders']
 NEWSPIDER_MODULE = 'realSpider.spiders'
 
+COOKIES_ENABLED = False
 
+ITEM_PIPELINES = {
+    'realSpider.pipelines.W3SchoolPipeline':300 ,
+}
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = 'realSpider (+http://www.yourdomain.com)'
 

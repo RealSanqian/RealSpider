@@ -7,11 +7,6 @@
 import scrapy
 
 
-class RealspiderItem(scrapy.Item):
-    # define the fields for your item here like:
-    # name = scrapy.Field()
-    pass
-
 class DmozItem(scrapy.Item):
     title = scrapy.Field()
     link = scrapy.Field()
@@ -34,7 +29,7 @@ class NewsItem(scrapy.Item):
     vn = scrapy.Field() #爬虫爬取次数
 
 class W3schoolItem(scrapy.Item):
-    titile = scrapy.Field()
+    title = scrapy.Field()
     link = scrapy.Field()
     desc = scrapy.Field()
 

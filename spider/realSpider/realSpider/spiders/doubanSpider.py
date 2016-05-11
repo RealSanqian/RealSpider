@@ -1,7 +1,7 @@
 #coding=utf-8
 from scrapy.contrib.spiders import CrawlSpider, Rule
 from scrapy.selector import Selector
-from ..items import DoubanItem
+from realSpider.items import DoubanItem
 from scrapy.contrib.linkextractors.sgml import SgmlLinkExtractor
 
 class DoubanSpider(CrawlSpider) :

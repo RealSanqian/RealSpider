@@ -14,11 +14,18 @@ BOT_NAME = 'realSpider'
 SPIDER_MODULES = ['realSpider.spiders']
 NEWSPIDER_MODULE = 'realSpider.spiders'
 
+#禁止cookies,防止被ban
 COOKIES_ENABLED = False
 
 ITEM_PIPELINES = {
     'realSpider.pipelines.W3SchoolPipeline':300 ,
 }
+
+#取消默认的useragent,使用新的useragent
+DOWNLOADER_MIDDLEWARES = {
+        'scrapy.contrib.downloadermiddleware.useragent.UserAgentMiddleware' : None,
+        'realSpider.rotate_useragent.RotateUserAgentMiddleware' :400
+    }
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = 'realSpider (+http://www.yourdomain.com)'
 
